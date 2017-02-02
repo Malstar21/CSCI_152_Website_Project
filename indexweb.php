@@ -105,7 +105,7 @@
 					?>
 				
 					<section id="main">
-
+						<P align=right> <a href="https://www.google.com/">SignIn/Register</a></P>
 						<!-- Thumbnails for home page -->
 							<section class="thumbnails">
 								<div id="div1">
