@@ -105,7 +105,13 @@
 					?>
 				
 					<section id="main">
-						<P align=right> <a href="https://www.google.com/">SignIn/Register</a></P>
+						<header>
+							<div>
+								<p align="center"; style="font-family:verdana;font-size:30px">
+									<b><i>~ STORIES ~</i></b>
+								</p>
+							</div>
+						</header>
 						<!-- Thumbnails for home page -->
 							<section class="thumbnails">
 								<div id="div1">
