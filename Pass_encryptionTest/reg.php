@@ -18,8 +18,8 @@ if(isset($_POST["submit1"]))
 {
 $pwd=md5($_POST["p1"]);
 mysql_connect("localhost","root","");
-mysql_select_db("users");
-mysql_query("insert into registration values('$_POST[users]','$pwd')");
+mysql_select_db("md5_password");
+mysql_query("insert into registration values('$_POST[u1]','$pwd')");
     
     
 }
