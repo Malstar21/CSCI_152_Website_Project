@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 <head>
-<title>Register Now</title>
+<title>Register Now!</title>
 </head>
 <body>
 
