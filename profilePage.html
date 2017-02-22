@@ -7,6 +7,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <style type="text/css">
+	
+	
         /* USER PROFILE PAGE */
  .card {
     margin-top: 20px;
@@ -14,10 +16,11 @@
     background-color: rgba(214, 224, 226, 0.2);
     -webkit-border-top-left-radius:5px;
     -moz-border-top-left-radius:5px;
-    border-top-left-radius:5px;
+    border-top-left-radius:50px;
     -webkit-border-top-right-radius:5px;
     -moz-border-top-right-radius:5px;
-    border-top-right-radius:5px;
+    border-top-right-radius:50px;
+
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -92,9 +95,12 @@
 
 body {
 		background-color: #000;
-		background-image: url("bg.jpg");
+		background-image: url("images/bg.jpg");
 		background-size: cover;
 		background-position: top center;
+		width:100%;
+        margin-left:25%;
+        margin-right:25%;
 	}
 	
 	div1 {
@@ -115,18 +121,20 @@ body {
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 
+
+
 <body>
 <div>
-<div class="col-lg-6 col-sm-6">
+<div class="col-lg-6 col-sm-6" >
     <div class="card hovercard">
         <div class="card-background">
-            <img class="card-bkimg" alt="" src="http://lorempixel.com/100/100/people/9/">
-            <!-- http://lorempixel.com/850/280/people/9/ -->
+            <img class="card-bkimg" alt="" src="images/headerbg.jpg">
+           
         </div>
         <div class="useravatar">
-            <img alt="" src="http://lorempixel.com/100/100/people/9/">
+            <img src="images/avatar.png" alt="" />
         </div>
-        <div class="card-info"> <span class="card-title">Pamela Anderson</span>
+        <div class="card-info"> <span class="card-title"> Name Here</span><button type="button" id="change name" class= "btn btn-dfault"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:black"></span></button>
 
         </div>
     </div>
@@ -148,8 +156,8 @@ body {
         </div>
 		
 		<div class="btn-group" role="group">
-            <button type="button" id="following" class="btn btn-default" href="#tab4" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <div class="hidden-xs">More to come</div>
+            <button type="button" id="following" class="btn btn-default" href="#tab4" data-toggle="tab"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
+                <div class="hidden-xs">Messages</div>
             </button>
         </div>
     </div>
@@ -173,7 +181,7 @@ body {
     </div>
     
     </div>
-            
+           
     
 <script type="text/javascript">
 $(document).ready(function() {
