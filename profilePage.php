@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
   <?php
@@ -17,7 +18,8 @@
     <title>People card with Tabs - Bootsnipp.com</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-    <style type="text/css">
+	
+	<style type="text/css">
 
 
         /* USER PROFILE PAGE */
@@ -128,14 +130,77 @@ body {
 
 
     </style>
+	
+
+
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 </head>
 
+<div id="wrapper" class="dropdown"  >
+		<button class="dropbtn">Menu</button>
 
+		<!-- Header -->
+		<header>
+
+			<div class="dropdown-content">
+
+				<li><a class="menuDropText" href="http://localhost/indexweb.php">Home </a></li>
+				<li><a class="menuDropText" href="http://localhost/enterinfo.html">Make A Story</a></li>
+				<li><a class="menuDropText" href="http://localhost/retrievestory.php">Stories</a></li>
+				<li><a class="menuDropText" href="http://localhost/reading.html">Contact Us</a></li>
+			</div>
+		</header>
+	</div>
+	
+		<style>
+			.dropbtn {
+				background-color: transparent;
+				color: white;
+				padding: 0px;
+				font-size: 25px;
+				border: none;
+				cursor: pointer;
+			}
+
+			.dropdown {
+				position: relative;
+				display: inline-block;
+			}
+
+			.dropdown-content {
+				display: none;
+				color: white;
+				font-size: 20px;
+				position: absolute;
+				list-style-type: none;
+				background-color: gray;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			}
+
+			.dropdown-content a {
+				color: white;
+				font-size: 20px;
+				padding: 12px 16px;
+				text-decoration: none;
+
+				display: block;
+			}
+
+			.dropdown-content a:hover {background-color: #f1f1f1}
+
+			.dropdown:hover .dropdown-content {
+				display: block;
+			}
+
+			.dropdown:hover .dropbtn {
+				background-color: transparent;
+			}
+</style>
 
 <body>
-<div>
+
 <div class="col-lg-6 col-sm-6" >
     <div class="card hovercard">
         <div class="card-background">
@@ -182,7 +247,7 @@ body {
         <div class="well">
       <div class="tab-content">
         <div class="tab-pane fade in active" id="tab1">
-          <h3>This is tab 1</h3>
+          <h3>Your Stories</h3>
           <?php
             // this will be where we get the unique user id and pull there stories
         	  // from makeastory database
@@ -205,13 +270,13 @@ body {
         ?>
         </div>
         <div class="tab-pane fade in" id="tab2">
-          <h3>This is tab 2</h3>
+          <h3>Favorited Stories</h3>
         </div>
         <div class="tab-pane fade in" id="tab3">
-          <h3>This is tab 3</h3>
+          <h3>Friend List</h3>
 		  </div>
 		<div class="tab-pane fade in" id="tab4">
-          <h3>This is tab 4</h3>
+          <h3>Messages</h3>
 		  </div>
 		 <div class="tab-pane fade in" id="tab5">
           <label><span class="glyphicon glyphicon-camera" aria-hidden="true" style="color:black"></span> Profile Picture: </label> <input type="file" name="image" />
