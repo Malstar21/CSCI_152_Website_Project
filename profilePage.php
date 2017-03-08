@@ -145,7 +145,7 @@ body {
         <div class="useravatar">
             <img src="images/avatar.png" alt="" />
         </div>
-        <div class="card-info"> <span class="card-title"> Name Here</span><button type="button" id="change name" class= "btn btn-dfault"><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:black"></span></button>
+        <div class="card-info"> <span class="card-title"> Name Here</span>
 
         </div>
     </div>
@@ -214,8 +214,20 @@ body {
           <h3>This is tab 4</h3>
 		  </div>
 		 <div class="tab-pane fade in" id="tab5">
-          <h3>Settings</h3>
-
+          <label><span class="glyphicon glyphicon-camera" aria-hidden="true" style="color:black"></span> Profile Picture: </label> <input type="file" name="image" />
+		  <input type='submit' value='Submit' name='submit' />  
+		  
+			<div>
+		  <label><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:black"></span>Change Name:  </label>
+			<div>
+			<input type="text" placeholder="New Name?" name="pname">
+			<button type "submit">Submit</button>
+			</div>
+		  <label><span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:red"></span>Delete Profile?:  </label>
+			<div>
+			<button onclick="Delete()">DELETE!</button> 
+			</div>
+			</div>
         </div>
       </div>
     </div>
@@ -231,6 +243,10 @@ $(".btn-pref .btn").click(function () {
     $(this).removeClass("btn-default").addClass("btn-primary");
 });
 });
+
+function Delete(){
+	confirm("Deleting Profile")
+}
 </script>
 
 </body>
