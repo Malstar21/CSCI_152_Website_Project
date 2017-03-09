@@ -244,10 +244,12 @@ body {
         </div>
     </div>
 
-        <div class="well">
-      <div class="tab-content">
+   <div class="well">
+	<div class="tab-content">
+	  
+		<!-- this is the section for the first tab in profile page-->
         <div class="tab-pane fade in active" id="tab1">
-          <h3>Your Stories</h3>
+          <h3>Your Stories <span class="glyphicon glyphicon-pushpin"></span></h3>
           <?php
             // this will be where we get the unique user id and pull there stories
         	  // from makeastory database
@@ -269,35 +271,51 @@ body {
             }
         ?>
         </div>
+		<!-- section for button panes on profile page (crossbar)
+			also includes the titles for the actual tabs when clicked
+		-->
+	
         <div class="tab-pane fade in" id="tab2">
-          <h3>Favorited Stories</h3>
+          <h3>Favorited Stories 
+			<span class="glyphicon glyphicon-thumbs-up"></span>
+		  </h3>
         </div>
+		
         <div class="tab-pane fade in" id="tab3">
-          <h3>Friend List</h3>
-		  </div>
+          <h3>Friend List 
+			<span class="glyphicon glyphicon-globe"></span>
+		  </h3>
+		</div>
+		
 		<div class="tab-pane fade in" id="tab4">
-          <h3>Messages</h3>
-		  </div>
-		 <div class="tab-pane fade in" id="tab5">
-          <label><span class="glyphicon glyphicon-camera" aria-hidden="true" style="color:black"></span> Profile Picture: </label> <input type="file" name="image" />
-		  <input type='submit' value='Submit' name='submit' />  
-		  
+          <h3>Messages 
+			<span class="glyphicon glyphicon-inbox"></span>
+		  </h3>
+		</div>
+		
+		<!--Section for account settings -->
+		<div class="tab-pane fade in" id="tab5">
+          <label>
+			<span class="glyphicon glyphicon-camera" aria-hidden="true" style="color:black"></span> Profile Picture: </label> 
+			<input type="file" name="image" />
+			<input type='submit' value='Submit' name='submit' />   
 			<div>
-		  <label><span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:black"></span>Change Name:  </label>
-			<div>
-			<input type="text" placeholder="New Name?" name="pname">
-			<button type "submit">Submit</button>
-			</div>
-		  <label><span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:red"></span>Delete Profile?:  </label>
-			<div>
-			<button onclick="Delete()">DELETE!</button> 
-			</div>
+				<label>
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:black"></span>Change Name:  
+				</label>
+				<div>
+					<input type="text" placeholder="New Name?" name="pname">
+					<button type "submit">Submit</button>
+				</div>
+				<label><span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:red"></span>Delete Profile?:  </label>
+				<div>
+					<button onclick="Delete()">DELETE!</button> 
+				</div>
 			</div>
         </div>
-      </div>
     </div>
-
-    </div>
+   </div>
+</div>
 
 
 <script type="text/javascript">
