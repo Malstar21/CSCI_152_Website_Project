@@ -9,6 +9,7 @@
   // SELECT all messages that belong to retrieving user's ID
   // get retrieving user's ID, example replace 0 with user's ID
   // $id = 0
+  // when user inputs name search account table for user's account ID
   $sql = "SELECT messageText FROM usermessage WHERE toUserKey = 0";
   $result = mysql_query($sql);
 
