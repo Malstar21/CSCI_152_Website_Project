@@ -12,12 +12,13 @@
 	}
 	echo "connected";
 
-	if(isset($_POST['submitbtn'])) {
-		$UserName = mysql_real_escape_string($_POST['uname']);
-		$Email = mysql_real_escape_string($_POST['email']);
-		$Date = $_POST['bday'];
-		$Password = mysql_real_escape_string($_POST['psw']);
-		$sql = "INSERT INTO user accounts (UserName, Password, Email, Birthday) VALUES ('$UserName', '$Password', '$Email', '$Date') ";
+	if(isset($_POST['submit'])) {
+		$UserName = ($_POST['uname']);
+		$Pass = md5($_POST['psw']);
+		$Email = ($_POST['email']);
+		$DOB = ($_POST['bday']);
+
+		$sql = "INSERT INTO useraccounts (UserName, Password, Email, Birthday) VALUES ('$UserName', '$Pass', '$Email', '$DOB')";
 
 		if(mysql_query($sql)) {
 			echo "Records added";
@@ -26,5 +27,7 @@
 			echo "ERROR";
 		}
 	}
+	
+	// just goes back to register page for now
 	header("Location:http://localhost/registerPage.html")
 ?>

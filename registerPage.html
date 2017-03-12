@@ -177,19 +177,17 @@
 	</div>
 
 	<h2 class="lgt">Registration</h2>
-	<form method='post' enctype="multipart/form-data" action=http://localhost/submitLogin.php>
+	<form method='post' enctype="multipart/form-data" action=http://localhost/submitRegister.php>
 		<div class "imgcontainer">
 			<!--<img scr="" alt="Avatar" class="avatar">-->
 		</div>
 
 		<div class="container">
 			<label><b>Username</b></label>
-			<input type="text" placeholder="Enter Username" name="uname" required>
+			<input type="text" placeholder="Enter Username" name="uname" id="uname" required>
 
 			<label><b>E-Mail</b></label>
-			<input type="text" placeholder="Enter E-Mail" name="email" required>
-
-
+			<input type="text" placeholder="Enter E-Mail" name="email" id="email" required>
 
 			<label><b>Password</b></label>
 			<input type="password" placeholder="Enter Password" name="psw" id="psw" required>
@@ -202,7 +200,8 @@
 		</div>
 
 		<div class="container" style="background-color:#f1f1f1">
-			<button ng-disabled="myForm.$invalid" class="submitbtn" id="submitbtn" onclick=confirmPassword()>Submit</button>
+			<button type="submit" ng-disabled="myForm.$invalid" class="submitbtn" name="submit" id="submit" onclick=confirmPassword()>Submit</button>
+
 			<button type="button" class="cancelbtn">Cancel</button>
       <span class="psw">Have an account? <a href="http://localhost/loginPage.html">Login in</a></span>
 		</div>
