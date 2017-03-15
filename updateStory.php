@@ -196,6 +196,22 @@
 			
 				<!-- Main -->
 					<section id="main">
+						<?php
+
+							$conn = mysql_connect("localhost", "root", "");
+							mysql_select_db("seem website");
+
+							// if connection failed display connection failed
+							if ($conn == false)
+								die("Connection failed");
+
+							// will need to get the user's ID here
+							$idu = 43;
+
+							$result = mysql_query("SELECT story FROM makeastory WHERE id = $idu");
+							$row = mysql_fetch_array($result);
+						?>
+						
 						<divT>
 						<font size="5"> Update Your Created Story</font>
 						</divT>
@@ -204,7 +220,7 @@
 						<form method='post' enctype="multipart/form-data" action=<!-- replace the action for pulling story-->
 							<br />
 
-							<label> Edit Your Story: </label> <textarea rows="9" name="comment" id="comment"></textarea><br />
+							<label> Edit Your Story: </label> <textarea rows="9" name="comment" id="comment"><?php echo $row['story'] ?></textarea><br />
 							<input type='hidden' name='articleid' id='articleid' value='<? echo $_GET["id"]; ?>' />
 							
 							<!--<label> Image: </label> <input type="file" name="image" />-->
