@@ -73,6 +73,7 @@
 			.dropdown {
 				position: relative;
 				display: inline-block;
+				padding: 0 2em;
 			}
 			.dropdown-content {
 				display: none;
@@ -92,12 +93,23 @@
 
 				display: block;
 			}
-			.dropdown-content a:hover {background-color: #f1f1f1}
+			
+			.dropdown-content a:hover {
+				background-color: #f1f1f1
+			}
+			
 			.dropdown:hover .dropdown-content {
 				display: block;
 			}
 			.dropdown:hover .dropbtn {
 				background-color: transparent;
+			}
+			
+			.menuDropText {
+				font-size: 20pt;
+				border-bottom: dotted 1px rgba(255, 255, 255, 0.35);
+				padding: 12px 16px;
+				line-height: 1.65;
 			}
 			
 			/* Popup container - can be anything you want */
@@ -165,8 +177,7 @@
 	</head>
 
 	<!-- BEGIN BODY OF HTML -->
-	
-	<body>
+	<body style ="text-align:left" >
 		<!-- Wrapper -->
 			<div id="wrapper" class="dropdown"  >
 				<button class="dropbtn">Menu</button>
@@ -182,6 +193,7 @@
 						</div>
 					</header>
 			</div>
+			
 				<!-- Main -->
 					<section id="main">
 						<divT>
