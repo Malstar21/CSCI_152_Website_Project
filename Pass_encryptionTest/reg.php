@@ -19,7 +19,34 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
        //store files to images folder
         $avatar_path = $mysqli->real_escape_string('images/'.$_FILES['avatar']['name']);
     
-    //do we need sessions to use for server side? 
+    //do we need sessions to use for server side? //check to see if image is the same type 
+        if (preg_match("!image!",$_FILES['avatar']['type'])) {
+            
+            //copy images to $avatar_path and the path is (('images/'.$_FILES['avatar']['name']))
+            if (copy($_FILES['avatar']['tmp_name'], $avatar_path)){
+                
+                //session variables to be used on server 
+                $_SESSION['username'] = username;
+                $_SESSION['avatar'] = avatar_path;
+
+                //insert user data into database
+                $sql = "INSERT INTO accounts (username, email, password, avatar) "
+                        . "VALUES ('$username', '$email', '$password', '$avatar_path')";
+                
+                //if login and reg successful, take them to welcome php 
+                if ($mysqli->query($sql) === true){
+                    //$username is variable for register user
+                    $_SESSION['message'] = "Registration succesful! $username has registered, Welcome!";
+                    header("location: member.php");
+                }
+                // need a fail case
+                $mysqli->open();          
+            }
+        }
+        
+    }
+    // need to check if passwords are similar
+	
 }
 
 //end php 
