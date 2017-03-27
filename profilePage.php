@@ -115,18 +115,90 @@ body {
         margin-left:25%;
         margin-right:25%;
 	}
+	
+	
+	
+div1 {
+		height: 200px;
+		width: 400px;
+		background: transparent;
 
-	div1 {
-				height: 200px;
-				width: 400px;
-				background: transparent;
+		top: 50%;
+		left: 50%;
+		margin-top: -100px;
+		margin-left: -200px;
+	}
 
-				top: 50%;
-				left: 50%;
-				margin-top: -100px;
-				margin-left: -200px;
+.dropbtn {
+				background-color: transparent;
+				color: white;
+				padding: 0px;
+				font-size: 25px;
+				border: none;
+				cursor: pointer;
 			}
 
+.dropdown {
+				position: relative;
+				display: inline-block;
+			}
+
+.dropdown-content {
+				display: none;
+				color: white;
+				font-size: 20px;
+				position: absolute;
+				list-style-type: none;
+				background-color: gray;
+				min-width: 160px;
+				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+			}
+
+.dropdown-content a {
+				color: white;
+				font-size: 20px;
+				padding: 12px 16px;
+				text-decoration: none;
+
+				display: block;
+			}
+
+.dropdown-content a:hover {
+	
+	             background-color: #f1f1f1
+			}
+
+.dropdown:hover .dropdown-content {
+				display: block;
+			}
+
+.dropdown:hover .dropbtn {
+				background-color: transparent;
+			}			
+	
+
+<!-- Friends list background -->	
+div.background {
+    background: url("images/bg.jpg") repeat;
+    border: 2px solid black;
+}
+
+div.transbox {
+    margin: 30px;
+    background-color: #ffffff;
+    border: 1px solid black;
+    opacity: 0.6;
+    filter: alpha(opacity=60); 
+}
+
+div.transbox p {
+    margin: 5%;
+    font-weight: bold;
+    color: #000000;
+}
+		
+		
+		
 
 
     </style>
@@ -135,10 +207,13 @@ body {
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-</head>
+	</head>	
+    
 
-<div id="wrapper" class="dropdown"  >
-		<button class="dropbtn">Menu</button>
+<body style ="text-align:left" class>
+
+<div id="wrapper"  class="dropdown"  >
+				<button class="dropbtn">Menu</button>
 
 		<!-- Header -->
 		<header>
@@ -151,56 +226,8 @@ body {
 				<li><a class="menuDropText" href="http://localhost/reading.html">Contact Us</a></li>
 			</div>
 		</header>
-	</div>
-	
-		<style>
-			.dropbtn {
-				background-color: transparent;
-				color: white;
-				padding: 0px;
-				font-size: 25px;
-				border: none;
-				cursor: pointer;
-			}
-
-			.dropdown {
-				position: relative;
-				display: inline-block;
-			}
-
-			.dropdown-content {
-				display: none;
-				color: white;
-				font-size: 20px;
-				position: absolute;
-				list-style-type: none;
-				background-color: gray;
-				min-width: 160px;
-				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-			}
-
-			.dropdown-content a {
-				color: white;
-				font-size: 20px;
-				padding: 12px 16px;
-				text-decoration: none;
-
-				display: block;
-			}
-
-			.dropdown-content a:hover {background-color: #f1f1f1}
-
-			.dropdown:hover .dropdown-content {
-				display: block;
-			}
-
-			.dropdown:hover .dropbtn {
-				background-color: transparent;
-			}
-</style>
-
-<body>
-
+			</div>
+			
 <div class="col-lg-6 col-sm-6" >
     <div class="card hovercard">
         <div class="card-background">
@@ -284,7 +311,20 @@ body {
         <div class="tab-pane fade in" id="tab3">
           <h3>Friend List 
 			<span class="glyphicon glyphicon-globe"></span>
+			<div class="background">
+				<div class="transbox">
+					<p> This is where the list of friends will go</p>
+					<p> stuff</p>
+					<p> stuff</p>
+					<p> stuff</p>
+					<p> stuff</p>
+					<p> stuff</p>
+					<p> stuff</p>
+				</div>
+			</div>
+			
 		  </h3>
+		 
 		</div>
 		
 		<div class="tab-pane fade in" id="tab4">
