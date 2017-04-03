@@ -21,6 +21,7 @@
             echo "<div class='userlist'><span>$row[username]</span><br />";
             echo "<img src='$row[avatar]'></div>";
         }
+        ?>  
         </div>
     </div>
 </div>
