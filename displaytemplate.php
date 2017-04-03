@@ -81,6 +81,7 @@
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<link rel="stylesheet" href="assets/css/main1.css" />
+		<link rel="stylesheet" href="assets/css/button.css" />
 		
 		<style>
 			input[type="submit"]{
@@ -239,7 +240,12 @@
 					</header>
 			</div>
 				<!-- Main -->			
-				<div class="box"> 
+				<div class="box">
+
+					<h3>Button with counter - active/inactive</h3>
+<p>
+  <a href="#" title="Love it" class="btn btn-counter" data-count="0"><span>&#x2764;</span> Love it</a>
+</p>
 				<ul>
 					<?php
 					$dbhost = "localhost";
@@ -280,6 +286,8 @@
 			</div>
 			
 	</body>
+	
+	<!-- Scripts -->
 			<script>
 			
 			function displayStory() {
@@ -330,4 +338,10 @@
 		}
 		
 		</script>
+		
+		<script src="assets/js/jquery.min.js"></script>
+		<script src="assets/js/jquery.poptrox.min.js"></script>
+		<script src="assets/js/skel.min.js"></script>
+		<script src="assets/js/main.js"></script>
+		<script src="assets/js/button.js"></script>
 </html>
