@@ -1,4 +1,7 @@
 <?php
+	session_start();
+	$_SESSION['message'] = '';
+
 	$dbhost = "localhost";
 	$user = "root";
 	$password = "";
@@ -12,19 +15,36 @@
 	}
 	echo "connected";
 
-	if(isset($_POST['submitbtn'])) {
-		$UserName = mysql_real_escape_string($_POST['uname']);
+	if(isset($_POST['submit'])) {
 		$Email = mysql_real_escape_string($_POST['email']);
-		$Date = $_POST['bday'];
-		$Password = mysql_real_escape_string($_POST['psw']);
-		$sql = "INSERT INTO user accounts (UserName, Password, Email, Birthday) VALUES ('$UserName', '$Password', '$Email', '$Date') ";
+		$Pass = md5($_POST['psw']);
+		//ECHO $Email;
+		//ECHO $Pass;
+		$select = "SELECT email, UserName, Password FROM useraccounts WHERE email = '$Email'";
+		$result = mysql_query($select, $conn);
+		//$row = mysql_fetch_assoc($result);
+		$row = mysql_fetch_assoc($result);
+		echo $row['Password'];
 
-		if(mysql_query($sql)) {
-			echo "Records added";
+		// while($row = mysql_fetch_assoc($result)) {
+		// 	echo $row['email'];
+		// 	echo $row['Password'];
+		// }
+		//$data = mysql_fetch_array($result, MYSQL_NUM);
+
+		// If there is an email match then compare passwords
+		if($row['Password'] == $Pass) {
+			//If password matches login to profilePage
+			header("Location: http://localhost/profilePage.php");
+ 			exit;
 		}
 		else {
-			echo "ERROR";
+			// If email not found return an error
+			$_SESSION['message'] = "Email and/or Password is incorrect";
+			header("Location:http://localhost/loginPage.php");
 		}
 	}
-	header("Location:http://localhost/registerPage.html")
+
+	// just goes back to register page for now
+
 ?>

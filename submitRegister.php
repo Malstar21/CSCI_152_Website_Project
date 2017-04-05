@@ -1,4 +1,7 @@
 <?php
+	session_start();
+	$_SESSION['message'] = '';
+
 	$dbhost = "localhost";
 	$user = "root";
 	$password = "";
@@ -13,21 +16,31 @@
 	echo "connected";
 
 	if(isset($_POST['submit'])) {
-		$UserName = ($_POST['uname']);
+		$UserName = mysql_real_escape_string($_POST['uname']);
 		$Pass = md5($_POST['psw']);
-		$Email = ($_POST['email']);
+		$Email = mysql_real_escape_string($_POST['email']);
 		$DOB = ($_POST['bday']);
 
-		$sql = "INSERT INTO useraccounts (UserName, Password, Email, Birthday) VALUES ('$UserName', '$Pass', '$Email', '$DOB')";
+		$select = "SELECT email FROM useraccounts WHERE email = '$Email'";
+		$result = mysql_query($select, $conn);
+		$data = mysql_fetch_array($result, MYSQL_NUM);
 
-		if(mysql_query($sql)) {
-			echo "Records added";
+		if($data > 1) {
+			$_SESSION['message'] = "This email is already being used";
 		}
 		else {
-			echo "ERROR";
+			$sql = "INSERT INTO useraccounts (UserName, Password, Email, Birthday) VALUES ('$UserName', '$Pass', '$Email', '$DOB')";
+			$_SESSION['message'] = "Sign up successful";
+
+			if(mysql_query($sql)) {
+				echo "Records added";
+			}
+			else {
+				echo "ERROR";
+			}
 		}
 	}
-	
+
 	// just goes back to register page for now
-	header("Location:http://localhost/registerPage.html")
+	header("Location:http://localhost/registerPage.php")
 ?>
