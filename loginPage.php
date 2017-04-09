@@ -1,12 +1,19 @@
 <!DOCTYPE HTML>
-<?php
-  session_start();
-  $_SESSION['message'];
-?>
 
 <html>
 <link href="http://more-sky.com/data/out/9/IMG_352169.jpg" rel="stylesheet" type="text/css"/>
 <link rel="stylesheet" href="registrationform.css" type="text/css">
+
+<head>
+  <?php
+    session_start();
+    // check if session is empty otherwise don't do anything
+    if(empty($_SESSION['message'])) {
+      $_SESSION['message'] = "";
+    }
+
+  ?>
+</head>
 
 <style>
 

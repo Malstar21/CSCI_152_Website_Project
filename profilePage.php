@@ -11,6 +11,18 @@
     // if connection failed display connection failed
     if ($conn == false)
       die("Connection failed");
+
+    // start session
+    session_start();
+
+    if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+      // welcome to profile page
+    }
+    else {
+      // user must login first before accessing profile page
+      header("Location: loginFirst.html");
+      exit;
+    }
   ?>
 
     <meta charset="utf-8">
@@ -18,7 +30,7 @@
     <title>People card with Tabs - Bootsnipp.com</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
-	
+
 	<style type="text/css">
 
 
@@ -115,9 +127,9 @@ body {
         margin-left:25%;
         margin-right:25%;
 	}
-	
-	
-	
+
+
+
 div1 {
 		height: 200px;
 		width: 400px;
@@ -164,7 +176,7 @@ div1 {
 			}
 
 .dropdown-content a:hover {
-	
+
 	             background-color: #f1f1f1
 			}
 
@@ -174,10 +186,10 @@ div1 {
 
 .dropdown:hover .dropbtn {
 				background-color: transparent;
-			}			
-	
+			}
 
-<!-- Friends list background -->	
+
+<!-- Friends list background -->
 div.background {
     background: url("images/bg.jpg") repeat;
     border: 2px solid black;
@@ -188,7 +200,7 @@ div.transbox {
     background-color: #ffffff;
     border: 1px solid black;
     opacity: 0.6;
-    filter: alpha(opacity=60); 
+    filter: alpha(opacity=60);
 }
 
 div.transbox p {
@@ -196,19 +208,19 @@ div.transbox p {
     font-weight: bold;
     color: #000000;
 }
-		
-		
-		
+
+
+
 
 
     </style>
-	
+
 
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-	</head>	
-    
+	</head>
+
 
 <body style ="text-align:left" class>
 
@@ -227,18 +239,18 @@ div.transbox p {
 			</div>
 		</header>
 			</div>
-			
+
 <div class="col-lg-6 col-sm-6" >
     <div class="card hovercard">
         <div class="card-background">
             <img class="card-bkimg" alt="" src="images/headerbg.jpg">
-
         </div>
+
         <div class="useravatar">
             <img src="images/avatar.png" alt="" />
         </div>
-        <div class="card-info"> <span class="card-title"> Name Here</span>
 
+        <div class="card-info"> <span class="card-title"> <?php echo $_SESSION['userName'] ?> </span>
         </div>
     </div>
     <div class="btn-pref btn-group btn-group-justified btn-group-lg" role="group" aria-label="...">
@@ -273,16 +285,17 @@ div.transbox p {
 
    <div class="well">
 	<div class="tab-content">
-	  
+
 		<!-- this is the section for the first tab in profile page-->
         <div class="tab-pane fade in active" id="tab1">
           <h3>Your Stories <span class="glyphicon glyphicon-pushpin"></span></h3>
           <?php
             // this will be where we get the unique user id and pull there stories
         	  // from makeastory database
-        	  $id =0;
+        	  $id = $_SESSION['userID'];
         	  $sql = "SELECT title, id, userKey FROM makeastory WHERE userKey=$id";
 
+            // get query
             $result = mysql_query($sql);
 
             // this will display titles of stories that belong to that user account
@@ -301,15 +314,15 @@ div.transbox p {
 		<!-- section for button panes on profile page (crossbar)
 			also includes the titles for the actual tabs when clicked
 		-->
-	
+
         <div class="tab-pane fade in" id="tab2">
-          <h3>Favorited Stories 
+          <h3>Favorited Stories
 			<span class="glyphicon glyphicon-thumbs-up"></span>
 		  </h3>
         </div>
-		
+
         <div class="tab-pane fade in" id="tab3">
-          <h3>Friend List 
+          <h3>Friend List
 			<span class="glyphicon glyphicon-globe"></span>
 			<div class="background">
 				<div class="transbox">
@@ -322,26 +335,26 @@ div.transbox p {
 					<p> stuff</p>
 				</div>
 			</div>
-			
+
 		  </h3>
-		 
+
 		</div>
-		
+
 		<div class="tab-pane fade in" id="tab4">
-          <h3>Messages 
+          <h3>Messages
 			<span class="glyphicon glyphicon-inbox"></span>
 		  </h3>
 		</div>
-		
+
 		<!--Section for account settings -->
 		<div class="tab-pane fade in" id="tab5">
           <label>
-			<span class="glyphicon glyphicon-camera" aria-hidden="true" style="color:black"></span> Profile Picture: </label> 
+			<span class="glyphicon glyphicon-camera" aria-hidden="true" style="color:black"></span> Profile Picture: </label>
 			<input type="file" name="image" />
-			<input type='submit' value='Submit' name='submit' />   
+			<input type='submit' value='Submit' name='submit' />
 			<div>
 				<label>
-					<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:black"></span>Change Name:  
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:black"></span>Change Name:
 				</label>
 				<div>
 					<input type="text" placeholder="New Name?" name="pname">
@@ -349,7 +362,7 @@ div.transbox p {
 				</div>
 				<label><span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:red"></span>Delete Profile?:  </label>
 				<div>
-					<button onclick="Delete()">DELETE!</button> 
+					<button onclick="Delete()">DELETE!</button>
 				</div>
 			</div>
         </div>

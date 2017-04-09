@@ -1,6 +1,9 @@
 <?php
 	session_start();
 	$_SESSION['message'] = '';
+	$_SESSION['userID'];
+	$_SESSION['userName'];
+	$_SESSION['loggedIn'];
 
 	$dbhost = "localhost";
 	$user = "root";
@@ -20,7 +23,7 @@
 		$Pass = md5($_POST['psw']);
 		//ECHO $Email;
 		//ECHO $Pass;
-		$select = "SELECT email, UserName, Password FROM useraccounts WHERE email = '$Email'";
+		$select = "SELECT UserName, Password, ID FROM useraccounts WHERE email = '$Email'";
 		$result = mysql_query($select, $conn);
 		//$row = mysql_fetch_assoc($result);
 		$row = mysql_fetch_assoc($result);
@@ -35,6 +38,10 @@
 		// If there is an email match then compare passwords
 		if($row['Password'] == $Pass) {
 			//If password matches login to profilePage
+			// get user's ID & name
+			$_SESSION['userID'] = $row['ID'];
+			$_SESSION['userName'] = $row['UserName'];
+			$_SESSION['loggedIn'] = True;
 			header("Location: http://localhost/profilePage.php");
  			exit;
 		}
