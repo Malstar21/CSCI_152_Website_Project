@@ -164,6 +164,7 @@ div1 {
 				background-color: gray;
 				min-width: 160px;
 				box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 10;
 			}
 
 .dropdown-content a {
@@ -209,36 +210,32 @@ div.transbox p {
     color: #000000;
 }
 
-
-
-
-
     </style>
-
-
 
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
 	</head>
 
 
+
+
 <body style ="text-align:left" class>
 
-<div id="wrapper"  class="dropdown"  >
-				<button class="dropbtn">Menu</button>
+  <!-- Header -->
+  <header>
+    <div id="wrapper"  class="dropdown"  >
+      <button class="dropbtn">Menu</button>
 
-		<!-- Header -->
-		<header>
+      <div class="dropdown-content">
 
-			<div class="dropdown-content">
+        <li><a class="menuDropText" href="http://localhost/indexweb.php">Home </a></li>
+        <li><a class="menuDropText" href="http://localhost/enterinfo.html">Make A Story</a></li>
+        <li><a class="menuDropText" href="http://localhost/retrievestory.php">Stories</a></li>
+        <li><a class="menuDropText" href="http://localhost/reading.html">Contact Us</a></li>
+      </div>
+    </div>
+  </header>
 
-				<li><a class="menuDropText" href="http://localhost/indexweb.php">Home </a></li>
-				<li><a class="menuDropText" href="http://localhost/enterinfo.html">Make A Story</a></li>
-				<li><a class="menuDropText" href="http://localhost/retrievestory.php">Stories</a></li>
-				<li><a class="menuDropText" href="http://localhost/reading.html">Contact Us</a></li>
-			</div>
-		</header>
-			</div>
 
 <div class="col-lg-6 col-sm-6" >
     <div class="card hovercard">
