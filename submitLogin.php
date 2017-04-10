@@ -23,17 +23,11 @@
 		$Pass = md5($_POST['psw']);
 		//ECHO $Email;
 		//ECHO $Pass;
-		$select = "SELECT UserName, Password, ID FROM useraccounts WHERE email = '$Email'";
+		$select = "SELECT UserName, Password, ProfilePicture, ID FROM useraccounts WHERE email = '$Email'";
 		$result = mysql_query($select, $conn);
 		//$row = mysql_fetch_assoc($result);
 		$row = mysql_fetch_assoc($result);
 		echo $row['Password'];
-
-		// while($row = mysql_fetch_assoc($result)) {
-		// 	echo $row['email'];
-		// 	echo $row['Password'];
-		// }
-		//$data = mysql_fetch_array($result, MYSQL_NUM);
 
 		// If there is an email match then compare passwords
 		if($row['Password'] == $Pass) {
@@ -41,6 +35,7 @@
 			// get user's ID & name
 			$_SESSION['userID'] = $row['ID'];
 			$_SESSION['userName'] = $row['UserName'];
+			$_SESSION['userPicture'] = $row['ProfilePicture'];
 			$_SESSION['loggedIn'] = True;
 			header("Location: http://localhost/profilePage.php");
  			exit;

@@ -1,7 +1,9 @@
 <!DOCTYPE HTML>
 <?php
   session_start();
-  $_SESSION['message'];
+  if(empty($_SESSION['message'])) {
+    $_SESSION['message'] = "";
+  }
 ?>
 
 <html>

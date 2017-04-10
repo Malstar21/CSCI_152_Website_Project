@@ -244,7 +244,7 @@ div.transbox p {
         </div>
 
         <div class="useravatar">
-            <img src="images/avatar.png" alt="" />
+            <?php echo '<img src="data:image;base64,'.$_SESSION['userPicture'].'">'; ?>
         </div>
 
         <div class="card-info"> <span class="card-title"> <?php echo $_SESSION['userName'] ?> </span>

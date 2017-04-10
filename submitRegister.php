@@ -21,6 +21,13 @@
 		$Email = mysql_real_escape_string($_POST['email']);
 		$DOB = ($_POST['bday']);
 
+		// get image
+		$image = addslashes($_FILES['avatar']['tmp_name']);
+		$image_name = addslashes($_FILES['avatar']['name']);
+		$image = file_get_contents($image);
+		$image = base64_encode($image);
+
+
 		$select = "SELECT email FROM useraccounts WHERE email = '$Email'";
 		$result = mysql_query($select, $conn);
 		$data = mysql_fetch_array($result, MYSQL_NUM);
@@ -29,7 +36,7 @@
 			$_SESSION['message'] = "This email is already being used";
 		}
 		else {
-			$sql = "INSERT INTO useraccounts (UserName, Password, Email, Birthday) VALUES ('$UserName', '$Pass', '$Email', '$DOB')";
+			$sql = "INSERT INTO useraccounts (UserName, Password, Email, Birthday, ProfilePicture) VALUES ('$UserName', '$Pass', '$Email', '$DOB', '$image')";
 			$_SESSION['message'] = "Sign up successful";
 
 			if(mysql_query($sql)) {
