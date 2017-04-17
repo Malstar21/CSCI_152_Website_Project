@@ -321,25 +321,31 @@ div.transbox p {
 		</div>
 
 		<!--Section for account settings -->
+
 		<div class="tab-pane fade in" id="tab5">
+      <form action=http://localhost/updateNameImage.php method="post" enctype="multipart/form-data" autocomplete="off">
           <label>
 			<span class="glyphicon glyphicon-camera" aria-hidden="true" style="color:black"></span> Profile Picture: </label>
 			<input type="file" name="image" />
-			<input type='submit' value='Submit' name='submit' />
+
 			<div>
 				<label>
 					<span class="glyphicon glyphicon-pencil" aria-hidden="true" style="color:black"></span>Change Name:
 				</label>
 				<div>
 					<input type="text" placeholder="New Name?" name="pname">
-					<button type "submit">Submit</button>
 				</div>
+        <div>
+          <input type='submit' value='Submit' name='submitNameImage' />
+        </div>
 				<label><span class="glyphicon glyphicon-remove" aria-hidden="true" style="color:red"></span>Delete Profile?:  </label>
 				<div>
 					<button onclick="Delete()">DELETE!</button>
 				</div>
 			</div>
-        </div>
+      </div>
+      </form>
+
     </div>
    </div>
 </div>
