@@ -15,14 +15,14 @@
     // start session
     session_start();
 
-    if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+    /*if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
       // welcome to profile page
     }
     else {
       // user must login first before accessing profile page
       header("Location: loginFirst.html");
       exit;
-    }
+    }*/
   ?>
 
     <meta charset="utf-8">
@@ -261,11 +261,6 @@ div.transbox p {
                 <div class="hidden-xs">Favorites</div>
             </button>
         </div>
-        <div class="btn-group" role="group">
-            <button type="button" id="following" class="btn btn-default" href="#tab3" data-toggle="tab"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-                <div class="hidden-xs">Friends</div>
-            </button>
-        </div>
 
 		<div class="btn-group" role="group">
             <button type="button" id="following" class="btn btn-default" href="#tab4" data-toggle="tab"><span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>
@@ -318,24 +313,6 @@ div.transbox p {
 		  </h3>
         </div>
 
-        <div class="tab-pane fade in" id="tab3">
-          <h3>Friend List
-			<span class="glyphicon glyphicon-globe"></span>
-			<div class="background">
-				<div class="transbox">
-					<p> This is where the list of friends will go</p>
-					<p> stuff</p>
-					<p> stuff</p>
-					<p> stuff</p>
-					<p> stuff</p>
-					<p> stuff</p>
-					<p> stuff</p>
-				</div>
-			</div>
-
-		  </h3>
-
-		</div>
 
 		<div class="tab-pane fade in" id="tab4">
           <h3>Messages
