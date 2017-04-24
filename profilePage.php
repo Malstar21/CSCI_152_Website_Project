@@ -223,7 +223,8 @@ div.transbox p {
 
   <!-- Header -->
   <header>
-    <div id="wrapper"  class="dropdown"  >
+
+    <div id="wrapper"  class="dropdown">
       <button class="dropbtn">Menu</button>
 
       <div class="dropdown-content">
@@ -232,6 +233,11 @@ div.transbox p {
         <li><a class="menuDropText" href="http://localhost/enterinfo.html">Make A Story</a></li>
         <li><a class="menuDropText" href="http://localhost/retrievestory.php">Stories</a></li>
         <li><a class="menuDropText" href="http://localhost/reading.html">Contact Us</a></li>
+        <?php
+        if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+          echo '<li><a class="menuDropText" href="http://localhost/logOut.php">Log Out</a></li>';
+        }
+        ?>
       </div>
     </div>
   </header>
