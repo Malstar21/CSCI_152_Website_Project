@@ -15,20 +15,34 @@ $post = $_POST["post"];
 if($post){
 #get comment
 $write = fopen("comment.txt", "a+");
-frwite($write, "<u><b> $name</b></u><br>$text<br>");
+frwite($write, "<u><b> $name</b></u><br>$text<br><br>");
 fclose($write);
-#display the comments 
 
+#display the comments
 $read=fopen("comment.txt","r+t");
-#outputting message to website 
-echo "All Comments";
+#outputting message to website
+echo "All Comments:<br>";
 
 while(!feof($read))
 {
 echo fread($read, 1024);
 }
 fclose($read);
+}
 
+else{
+  #display the comments
+  $read=fopen("comment.txt","r+t");
+  #outputting message to website
+  echo "All Comments:<br>";
+
+  while(!feof($read))
+  {
+  echo fread($read, 1024);
+  }
+
+fclose($read);
+}
 
 
 ?>
