@@ -9,22 +9,26 @@
 </html>
 
 <?php
-
 $name = $_POST["name"];
 $text = $_POST["mes"];
 $post = $_POST["post"];
-
 if($post){
-
-#WRITE DOWN COMMENTS
-
-$write = fopen("com.txt", "a+");
+#get comment
+$write = fopen("comment.txt", "a+");
 frwite($write, "<u><b> $name</b></u><br>$text<br>");
 fclose($write);
+#display the comments 
 
-#DISPLAY COMMENTS
+$read=fopen("comment.txt","r+t");
+#outputting message to website 
+echo "All Comments";
 
-
+while(!feof($read))
+{
+echo fread($read, 1024);
 }
+fclose($read);
+
+
 
 ?>
