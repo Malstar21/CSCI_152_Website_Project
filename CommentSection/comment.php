@@ -1,48 +1,62 @@
 <html>
-<form action="" method="post">
 
-  <label> Name: <br><input type="text"= name="name"></br></label>
-  <label> Comment: <br><textarea cols="45" rows="5" name="mes"></textarea></br></label>
-  <input type="submit" name="post" value="Post">
+ <head>
 
-</form>
+  <link rel="stylesheet" href="comment.css" type="text/css">
+ </head>
+
+ <body>
+
+  <form action="" method="POST">
+
+
+
+  <div class="container">
+      <form>
+        <div class="form-group">
+          <label> Name:
+           <input type="text" name="Name" class="Input" style="width: 220px" required>
+          </label>
+          <textarea class="form-control status-box" rows="3" placeholder="Enter your comment here..."></textarea>
+        </div>
+      </form>
+      <div class="button-group pull-right">
+        <p class="counter">250</p>
+        <a href="#" class="btn btn-primary">Submit Your Comment!</a>
+      </div>
+      <ul class="posts">
+      </ul>
+    </div>
+    </form>
+ </body>
+
 </html>
 
+
 <?php
-$name = $_POST["name"];
-$text = $_POST["mes"];
-$post = $_POST["post"];
-if($post){
-#get comment
-$write = fopen("comment.txt", "a+");
-frwite($write, "<u><b> $name</b></u><br>$text<br><br>");
-fclose($write);
 
-#display the comments
-$read=fopen("comment.txt","r+t");
-#outputting message to website
-echo "All Comments:<br>";
+ if($_POST['Submit'])
+ {
+  print "<h1>Thanks for your thoughts!</h1>";
 
-while(!feof($read))
-{
-echo fread($read, 1024);
-}
-fclose($read);
-}
+  $Name = $_POST['Name'];
+  $Comment = $_POST['Comment'];
 
-else{
-  #display the comments
-  $read=fopen("comment.txt","r+t");
-  #outputting message to website
-  echo "All Comments:<br>";
+  #Get old comments
+  $old = fopen("comment.txt", "r+t");
+  $old_comments = fread($old, 1024);
 
-  while(!feof($read))
-  {
-  echo fread($read, 1024);
-  }
+  #delete and write down new
+  $write = fopen("comment.txt", "w+");
+  $string = "<b>".$Name."</b><br>".$Comment."<br>\n".$old_comments;
+  fwrite($write, $string);
+  fclose($write);
+  fclose($old);
+ }
 
-fclose($read);
-}
-
+ #read the comments
+ $read = fopen("comment.txt", "r+t");
+ echo "<br><br>All Comments<hr>".fread($read, 1024);
+ fclose($read);
 
 ?>
