@@ -1,0 +1,94 @@
+body {
+	padding: 0;
+	margin: 0 auto;
+	background: #fff;
+}
+
+.clearfix {
+	clear: both;
+}
+
+h1, p, textarea, li, button {
+	margin: 0;
+	padding: 0;
+	color: #000;
+	font-size: 1em;
+	font-weight: 400;
+	font-family: 'Open Sans', sans-serif;
+}
+
+header {
+	min-height: 100px;
+}
+
+header h1 {
+	font-size: 150%;
+	font-weight: 600;
+	line-height: 400%;
+	text-align: center;
+}
+
+section {
+	width: 400px;
+	margin: 0 auto;
+}
+
+section textarea {
+	width: 100%;
+	height: 70px;
+	padding: 5px;
+	outline: none;
+	font-size: 80%;
+	resize: vertical;
+	margin-bottom: 20px;
+	border: 1px solid #0EBFE9;
+	border-bottom: 4px solid #63D1F4;
+}
+
+section p {
+	float: left;
+	line-height: 30px;
+}
+
+section span {
+	font-weight: bold;
+}
+
+section button {
+	border: 0;
+	width:	30%;
+	color: #fff;
+	height: 35px;
+	float: right;
+	outline: none;
+	cursor: pointer;
+	font-weight: 700;
+	background-color: #0EBFE9;
+	border-bottom: 3px solid #63D1F4;
+}
+
+section button:hover {
+	background-color: #0099CC;
+	border-bottom: 3px solid #00688B;
+}
+
+section button:disabled {
+	background-color: #d3d3d3 ;
+	border-bottom: 3px solid #d3d3d3;
+}
+
+section ul {
+	margin-top: 60px;
+	list-style: none;
+	padding-left: 0px;
+}
+
+section ul li {
+	padding: 10px 10px;
+  word-wrap: break-word;
+	border-bottom: 3px solid #63D1F4;
+}
+
+section ul li:hover {
+	border-bottom: 3px solid #00688B;
+}
