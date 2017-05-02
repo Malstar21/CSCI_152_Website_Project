@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>S.E.E.M</title>
+		<link href="comment.css" rel="stylesheet">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+	</head>
+	<body>
+		<header>
+			<h1>Share Your Thoughts!</h1>
+		</header>
+		<section>
+			<textarea class="YourName" placeholder="Whats your name?" type="textarea"></textarea>
+			<textarea class="commentBox" placeholder="Enter your comments here" type="textarea"></textarea>
+			<p><span class="counter">200</span> Characters left</p>
+			<button>Submit!</button>
+			<ul class="clearfix comments">
+				<li>Comment </li>
+				<li>Other comment </li>
+			</ul>
+		</section>
+	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+	<script src="commentscript.js">
+
+    $(document).ready(function() {
+	$('button').click(function() {
+		var comment = $('.commentBox').val();
+		$('<li>').text(comment).prependTo('.comments');
+		$('button').attr('disabled', 'true');
+		$('.counter').text('200');
+		$('.commentBox').val('');
+
+
+	});
+
+	$('.commentBox').keyup(function() {
+		<!-- create variable for comment length-->
+		var commentLength = $(this).val().length;
+		var charLeft =  200 - commentLength;
+		$('.counter').text(charLeft);
+<!-- cant push button if theres nothing type  -->
+		if (commentLength == 0) {
+			$('button').attr('disabled', 'true');
+		}
+		<!-- disable button if the length is bigger than 200 -->
+		else if (commentLength > 200) {
+			$('button').attr('disabled', 'true');
+		}
+		else {
+			$('button').removeAttr('disabled', 'true');
+		}
+	});
+
+	$('button').attr('disabled', 'true');
+
+});
+
+
+
+    </script>
+</html>
