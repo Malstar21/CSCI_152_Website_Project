@@ -74,11 +74,11 @@ session_start();
 						<div class="dropdown-content">
 							<! Menu bubbles>
 							<li><a href="http://localhost/indexweb.php">Home </a></li>
-							<li><a href="http://localhost/enterinfo.php">Make A Story</a></li>
 							<li><a href="http://localhost/retrievestory.php">Stories</a></li>
-							<li><a href="http://localhost/reading.html">Contact Us</a></li>
+							<li><a href="http://localhost/reading.php">Contact Us</a></li>
 							<?php
 							if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+								echo '<li><a href="http://localhost/enterinfo.php">Make A Story</a></li>';
 								echo '<li><a href="http://localhost/profilePage.php">Profile</a></li>';
 								echo '<li><a class="menuDropText" href="http://localhost/logOut.php">Log Out</a></li>';
 							}
@@ -94,22 +94,22 @@ session_start();
 	$user = "root";
 	$password = "";
 	$db = "seem website";
-	
+
 	$conn = mysql_connect($dbhost, $user, $password);
 	mysql_select_db($db);
-	
+
 	if ($conn == false) {
 	die("Connection failed");
 	}
-	
+
 	$sql = "SELECT * FROM makeastory";
-	
+
 	$result = mysql_query($sql, $conn);
 	if(!$result)
 	{
 		echo 'could not run query';
 	}
-		
+
 	echo "
 	<br> <br> <br>
 	<table border='1'>
@@ -117,15 +117,14 @@ session_start();
 	<th>Stories</th>
 	</tr>
 	";
-	
+
 	// Gets everything in table
 	while($row = mysql_fetch_assoc($result))
 	{
-		echo "<tr>";	
+		echo "<tr>";
 		echo "<td> <a href='http://localhost/displaytemplate.php?rowid={$row['id']}'> {$row['title']}";
 		//echo '<img src="data:image;base64,'.$row['image'].' height="100" width="100" "> </a> </td>';
 		echo "</tr>";
 	}
 	mysql_close($conn);
 	?>
-
