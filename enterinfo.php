@@ -122,7 +122,7 @@ session_start();
 							<li><a href="http://localhost/indexweb.php">Home </a></li>
 							<li><a href="http://localhost/enterinfo.php">Make A Story</a></li>
 							<li><a href="http://localhost/retrievestory.php">Stories</a></li>
-							<li><a href="http://localhost/reading.html">Contact Us</a></li>	
+							<li><a href="http://localhost/reading.php">Contact Us</a></li>	
 							<?php
 							if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
 								echo '<li><a href="http://localhost/profilePage.php">Profile</a></li>';
