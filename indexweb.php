@@ -1,6 +1,10 @@
 <!DOCTYPE HTML>
 <!--
 
+<?php
+// start session
+session_start();
+?>
 -->
 <html>
 	<head>
@@ -72,8 +76,16 @@
 							<li><a href="http://localhost/indexweb.php">Home </a></li>
 							<li><a href="http://localhost/enterinfo.html">Make A Story</a></li>
 							<li><a href="http://localhost/retrievestory.php">Stories</a></li>
-							<li><a href="http://localhost/reading.html">Contact Us</a></li>	
-							<li><a href="http://localhost/profilePage.php">Profile</a></li>
+							<li><a href="http://localhost/reading.html">Contact Us</a></li>
+
+
+							<?php
+							if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+								echo '<li><a href="http://localhost/profilePage.php">Profile</a></li>';
+								echo '<li><a class="menuDropText" href="http://localhost/logOut.php">Log Out</a></li>';
+							}
+							?>
+
 						</div>
 					</header>
 			</div>
@@ -83,16 +95,16 @@
 						$user = "root";
 						$password = "";
 						$db = "seem website";
-	
+
 						$conn = mysql_connect($dbhost, $user, $password);
 						mysql_select_db($db);
-	
+
 						if ($conn == false) {
 							die("Connection failed");
 						}
-						
+
 						$sql = "SELECT * FROM makeastory ORDER BY RAND() LIMIT 8";
-						
+
 						$result = mysql_query($sql, $conn);
 						$story1 = mysql_fetch_assoc($result);
 						$story2 = mysql_fetch_assoc($result);
@@ -101,10 +113,10 @@
 						$story5 = mysql_fetch_assoc($result);
 						$story6 = mysql_fetch_assoc($result);
 						$story7 = mysql_fetch_assoc($result);
-						
+
 
 					?>
-				
+
 					<section id="main">
 						<header>
 							<div>

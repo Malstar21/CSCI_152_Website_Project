@@ -15,14 +15,14 @@
     // start session
     session_start();
 
-    /*if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+    if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
       // welcome to profile page
     }
     else {
       // user must login first before accessing profile page
       header("Location: loginFirst.html");
       exit;
-    }*/
+    }
   ?>
 
     <meta charset="utf-8">

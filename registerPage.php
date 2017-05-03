@@ -148,7 +148,7 @@
 
 <div class="body-content">
   <div class="module">
-    <h1>Welcome! Regiter Now!</h1>
+    <h1>Welcome! Register Now!</h1>
     <form class="form" action=http://localhost/submitRegister.php method="post" enctype="multipart/form-data" autocomplete="off">
 
       <div class="alert alert-error"> <?php echo $_SESSION['message']; ?> </div>
