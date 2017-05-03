@@ -1,7 +1,7 @@
 <html>
 	<head>
 		<title>S.E.E.M</title>
-		<link href="commentforjavascript.css" rel="stylesheet">
+		<link href="comment.css" rel="stylesheet">
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 	</head>
 	<body>
@@ -21,7 +21,6 @@
 	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 	<script src="commentscript.js">
-
     $(document).ready(function() {
 	$('button').click(function() {
 		var comment = $('.commentBox').val();
@@ -29,10 +28,7 @@
 		$('button').attr('disabled', 'true');
 		$('.counter').text('200');
 		$('.commentBox').val('');
-
-
 	});
-
 	$('.commentBox').keyup(function() {
 		<!-- create variable for comment length-->
 		var commentLength = $(this).val().length;
@@ -50,12 +46,7 @@
 			$('button').removeAttr('disabled', 'true');
 		}
 	});
-
 	$('button').attr('disabled', 'true');
-
 });
-
-
-
     </script>
 </html>
