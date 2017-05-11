@@ -1,4 +1,7 @@
 <!DOCTYPE HTML>
+<?php
+	session_start();
+ ?>
 <html>
 	<head>
 		<title>Update story</title>
@@ -93,25 +96,25 @@
 
 				display: block;
 			}
-			
+
 			.dropdown-content a:hover {
 				background-color: #f1f1f1
 			}
-			
+
 			.dropdown:hover .dropdown-content {
 				display: block;
 			}
 			.dropdown:hover .dropbtn {
 				background-color: transparent;
 			}
-			
+
 			.menuDropText {
 				font-size: 20pt;
 				border-bottom: dotted 1px rgba(255, 255, 255, 0.35);
 				padding: 12px 16px;
 				line-height: 1.65;
 			}
-			
+
 			/* Popup container - can be anything you want */
 			.popup {
 				position: relative;
@@ -160,7 +163,7 @@
 
 			/* Add animation (fade in the popup) */
 			@-webkit-keyframes fadeIn {
-				from {opacity: 0;} 
+				from {opacity: 0;}
 				to {opacity: 1;}
 			}
 
@@ -168,7 +171,7 @@
 			from {opacity: 0;}
 			to {opacity:1 ;}
 			}
-			
+
 			br {
 				margin:2em 0;/* FF for instance */
 				line-height:1em;/* chrome for instance */
@@ -186,14 +189,25 @@
 						<!-- dropdown navigation menu and its content-->
 						<div class="dropdown-content">
 							<! Menu bubbles>
-							<li><a href="http://localhost/indexweb.php">Home </a></li>
-							<li><a href="http://localhost/enterinfo.html">Make A Story</a></li>
-							<li><a href="http://localhost/retrievestory.php">Stories</a></li>
-							<li><a href="http://localhost/reading.html">Contact Us</a></li>	
+							<li><a class="menuDropText" href="http://localhost/indexweb.php">Home </a></li>
+			        <li><a class="menuDropText" href="http://localhost/retrievestory.php">Stories</a></li>
+			        <li><a class="menuDropText" href="http://localhost/reading.php">Contact Us</a></li>
+
+			    		<?php
+			    		if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+			      		echo '<li><a href="http://localhost/enterinfo.php">Make A Story</a></li>';
+			      		echo '<li><a href="http://localhost/profilePage.php">Profile</a></li>';
+			      		echo '<li><a class="menuDropText" href="http://localhost/logOut.php">Log Out</a></li>';
+			    		}
+
+			    		if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == false) {
+			      		echo '<li><a href="http://localhost/loginPage.php">Log In</a></li>';
+			    		}
+			    		?>
 						</div>
 					</header>
 			</div>
-			
+
 				<!-- Main -->
 					<section id="main">
 						<?php
@@ -205,26 +219,28 @@
 							if ($conn == false)
 								die("Connection failed");
 
-							// will need to get the user's ID here
-							$idu = 43;
+							// will need to get the story's ID here
+							$_SESSION['storyID'] = "";
+							$_SESSION['storyID'] = $_GET['rowid'];
+							$idu = $_GET['rowid'];
 
 							$result = mysql_query("SELECT story FROM makeastory WHERE id = $idu");
 							$row = mysql_fetch_array($result);
 						?>
-						
+
 						<divT>
 						<font size="5"> Update Your Created Story</font>
 						</divT>
 
 						<divL>
-						<form method='post' enctype="multipart/form-data" action=<!-- replace the action for pulling story-->
+						<form method='post' enctype="multipart/form-data" action=http://localhost/updateStoryToDatabase.php>
 							<br />
 
 							<label> Edit Your Story: </label> <textarea rows="9" name="comment" id="comment"><?php echo $row['story'] ?></textarea><br />
 							<input type='hidden' name='articleid' id='articleid' value='<? echo $_GET["id"]; ?>' />
-							
+
 							<!--<label> Image: </label> <input type="file" name="image" />-->
-							<input type='submit' value='Submit' name='submit' />
+							<input type='submit' value='Submit' name='submit'/>
 						</form>
 						</divL>
 
@@ -243,7 +259,7 @@
 
 										</ul>
 								</p>-->
-								
+
 							<body style="text-align:center">
 								<h2>Edit Your Story</h2>
 								<p>Same Rules Apply, if you need help </p>
