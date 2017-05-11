@@ -4,25 +4,64 @@
 <head>
 
   <?php
-    // connect to server
-    $conn = mysql_connect("localhost", "root", "");
-    mysql_select_db("seem website");
-
-    // if connection failed display connection failed
-    if ($conn == false)
-      die("Connection failed");
-
     // start session
     session_start();
 
-    if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
-      // welcome to profile page
+    function connectToServer()
+    {
+      // connect to server
+      $conn = mysql_connect("localhost", "root", "");
+      mysql_select_db("seem website");
+
+      // if connection failed display connection failed
+      if ($conn == false)
+        die("Connection failed");
     }
-    else {
-      // user must login first before accessing profile page
-      header("Location: loginFirst.html");
-      exit;
+
+    function checkIfLoggedIn()
+    {
+      if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+        // welcome to profile page
+      }
+      else {
+        // user must login first before accessing profile page
+        header("Location: loginFirst.html");
+        exit;
+      }
     }
+
+    function displayTitlesOfStories($result)
+    {
+      $num = 1;
+      while($row = mysql_fetch_array($result))
+      {
+        echo $num;
+        echo ". ";
+        echo "<a href='http://localhost/updateStory.php?rowid={$row['id']}'> <b> {$row['title']} </b> </a>";
+        echo "<br>";
+        $num++;
+      }
+    }
+
+    connectToServer();
+    checkIfLoggedIn();
+
+    // // connect to server
+    // $conn = mysql_connect("localhost", "root", "");
+    // mysql_select_db("seem website");
+    //
+    // // if connection failed display connection failed
+    // if ($conn == false)
+    //   die("Connection failed");
+
+    // if(isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+    //   // welcome to profile page
+    // }
+    // else {
+    //   // user must login first before accessing profile page
+    //   header("Location: loginFirst.html");
+    //   exit;
+    // }
   ?>
 
     <meta charset="utf-8">
@@ -232,14 +271,18 @@ div.transbox p {
         <li><a class="menuDropText" href="http://localhost/indexweb.php">Home </a></li>
         <li><a class="menuDropText" href="http://localhost/retrievestory.php">Stories</a></li>
         <li><a class="menuDropText" href="http://localhost/reading.php">Contact Us</a></li>
-		
-        <?php
-        if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
-		  echo '<li><a class="menuDropText" href="http://localhost/enterinfo.php">Make A Story</a></li>';
-		  echo '<li><a class="menuDropText" href="http://localhost/profilePage.php">Profile</a></li>';	
-          echo '<li><a class="menuDropText" href="http://localhost/logOut.php">Log Out</a></li>';
-        }
-        ?>
+
+    <?php
+    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+      echo '<li><a href="http://localhost/enterinfo.php">Make A Story</a></li>';
+      echo '<li><a href="http://localhost/profilePage.php">Profile</a></li>';
+      echo '<li><a class="menuDropText" href="http://localhost/logOut.php">Log Out</a></li>';
+    }
+
+    if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == false) {
+      echo '<li><a href="http://localhost/loginPage.php">Log In</a></li>';
+    }
+    ?>
       </div>
     </div>
   </header>
@@ -299,16 +342,16 @@ div.transbox p {
             $result = mysql_query($sql);
 
             // this will display titles of stories that belong to that user account
-            // using example link for now
-            $num = 1;
-            while($row = mysql_fetch_array($result))
-            {
-              echo $num;
-              echo ". ";
-              echo "<a href='http://localhost/displaytemplate.php?rowid={$row['id']}'> <b> {$row['title']} </b> </a>";
-              echo "<br>";
-              $num++;
-            }
+            displayTitlesOfStories($result);
+
+            // while($row = mysql_fetch_array($result))
+            // {
+            //   echo $num;
+            //   echo ". ";
+            //   echo "<a href='http://localhost/displaytemplate.php?rowid={$row['id']}'> <b> {$row['title']} </b> </a>";
+            //   echo "<br>";
+            //   $num++;
+            // }
         ?>
         </div>
 		<!-- section for button panes on profile page (crossbar)
