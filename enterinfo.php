@@ -120,13 +120,18 @@ session_start();
 						<div class="dropdown-content">
 							<! Menu bubbles>
 							<li><a href="http://localhost/indexweb.php">Home </a></li>
-							<li><a href="http://localhost/enterinfo.php">Make A Story</a></li>
 							<li><a href="http://localhost/retrievestory.php">Stories</a></li>
-							<li><a href="http://localhost/reading.php">Contact Us</a></li>	
+							<li><a href="http://localhost/reading.php">Contact Us</a></li>
+
 							<?php
 							if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == true) {
+								echo '<li><a href="http://localhost/enterinfo.php">Make A Story</a></li>';
 								echo '<li><a href="http://localhost/profilePage.php">Profile</a></li>';
 								echo '<li><a class="menuDropText" href="http://localhost/logOut.php">Log Out</a></li>';
+							}
+
+							if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == false) {
+								echo '<li><a href="http://localhost/loginPage.php">Log In</a></li>';
 							}
 							?>
 						</div>
@@ -144,9 +149,9 @@ session_start();
 
 							<label> Title: </label> <textarea rows="1" name="title" id="title"> </textarea>
 							<label> Story: </label> <textarea rows="9" name="comment" id="comment"></textarea><br />
-							
+
 							<input type='hidden' name='articleid' id='articleid' value='<? echo $_GET["id"]; ?>' />
-							
+
 							<label> Image: </label> <input type="file" name="image" />
 							<input type='submit' value='Submit' name='submit' />
 						</form>

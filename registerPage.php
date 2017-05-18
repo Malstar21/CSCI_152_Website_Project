@@ -148,6 +148,10 @@
           echo '<li><a href="http://localhost/profilePage.php">Profile</a></li>';
           echo '<li><a class="menuDropText" href="http://localhost/logOut.php">Log Out</a></li>';
         }
+
+        if (isset($_SESSION['loggedIn']) && $_SESSION['loggedIn'] == false) {
+          echo '<li><a href="http://localhost/loginPage.php">Log In</a></li>';
+        }
         ?>
       </div>
     </header>
